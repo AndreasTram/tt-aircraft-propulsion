@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ideal Gas Law Quiz</title>
+ 
+<style>
+ 
+body{
+font-family: Arial, sans-serif;
+max-width: 900px;
+margin:auto;
+padding:30px;
+}
+ 
+.question{
+border:1px solid #ddd;
+border-radius:10px;
+padding:20px;
+margin-bottom:20px;
+}
+ 
+.correct{
+color:green;
+font-weight:bold;
+}
+ 
+.wrong{
+color:red;
+font-weight:bold;
+}
+ 
+button{
+padding:10px 20px;
+font-size:16px;
+}
+ 
+</style>
+ 
+</head>
+<body>
+ 
+<h1>Ideal Gas Law Quiz</h1>
+ 
+<p>
+Test your understanding of the ideal gas equation
+</p>
+ 
+<h2>
+ 
+\[
+pV = mRT
+\]
+ 
+</h2>
+
+<a href="https://fhjoanneum.sharepoint.com/sites/L_IAV_Thermodynamic/_layouts/15/Doc.aspx?sourcedoc=%7BBFA227C6-D4C5-4AF8-B50A-ECE938A3E368%7D&file=VO-03-07_02_Zustandsgleichung.pptx&action=edit&mobileredirect=true"
+   target="_blank">
+   📊 VO-03-07_02_Zustandsgleichung.pptx
+</a>
+ 
+<form id="quiz">
+ 
+<div class="question">
+ 
+<h3>1. What happens to the density of an ideal gas if temperature increases at constant pressure?</h3>
+ 
+<label><input type="radio" name="q1" value="a"> Density increases</label><br>
+<label><input type="radio" name="q1" value="b"> Density remains constant</label><br>
+<label><input type="radio" name="q1" value="c"> Density decreases</label><br>
+ 
+</div>
+ 
+<div class="question">
+ 
+<h3>2. Which variable is directly proportional to temperature at constant pressure and mass?</h3>
+ 
+<label><input type="radio" name="q2" value="a"> Volume</label><br>
+<label><input type="radio" name="q2" value="b"> Density</label><br>
+<label><input type="radio" name="q2" value="c"> Molar mass</label><br>
+ 
+</div>
+ 
+<div class="question">
+ 
+<h3>3. Unit of the specific gas constant R?</h3>
+ 
+<label><input type="radio" name="q3" value="a"> Pa</label><br>
+<label><input type="radio" name="q3" value="b"> J/(kg·K)</label><br>
+<label><input type="radio" name="q3" value="c"> kg/m³</label><br>
+ 
+</div>
+ 
+<div class="question">
+ 
+<h3>4. What happens to pressure if volume is halved while temperature remains constant?</h3>
+ 
+<label><input type="radio" name="q4" value="a"> Pressure doubles</label><br>
+<label><input type="radio" name="q4" value="b"> Pressure halves</label><br>
+<label><input type="radio" name="q4" value="c"> Pressure unchanged</label><br>
+ 
+</div>
+ 
+<div class="question">
+ 
+<h3>5. Which equation calculates density?</h3>
+ 
+<label><input type="radio" name="q5" value="a"> ρ = p / (RT)</label><br>
+<label><input type="radio" name="q5" value="b"> ρ = RT / p</label><br>
+<label><input type="radio" name="q5" value="c"> ρ = pT/R</label><br>
+ 
+</div>
+ 
+<button type="button" onclick="evaluateQuiz()">
+Evaluate
+</button>
+ 
+</form>
+ 
+<hr>
+ 
+<div id="results"></div>
+ 
+<script>
+ 
+function evaluateQuiz(){
+ 
+let score = 0;
+ 
+const answers = {
+ 
+q1:"c",
+q2:"a",
+q3:"b",
+q4:"a",
+q5:"a"
+ 
+};
+ 
+for(let q in answers){
+ 
+let selected =
+document.querySelector(
+'input[name="'+q+'"]:checked'
+);
+ 
+if(selected){
+ 
+if(selected.value === answers[q]){
+ 
+score++;
+ 
+}
+ 
+}
+ 
+}
+ 
+let percentage =
+100*score/5;
+ 
+let grade;
+ 
+if(percentage >= 90)
+grade = "Excellent";
+ 
+else if(percentage >= 70)
+grade = "Good";
+ 
+else if(percentage >= 50)
+grade = "Pass";
+ 
+else
+grade = "Needs Improvement";
+ 
+document.getElementById("results").innerHTML =
+ 
+`
+<h2>Results</h2>
+ 
+<p><b>Score:</b> ${score} / 5</p>
+ 
+<p><b>Percentage:</b> ${percentage.toFixed(0)} %</p>
+ 
+<p><b>Assessment:</b> ${grade}</p>
+ 
+`;
+ 
+}
+ 
+</script>
+ 
+</body>
+</html>
